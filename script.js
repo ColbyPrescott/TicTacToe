@@ -27,7 +27,7 @@ function resetGame() {
 }
 
 function displayBoard() {
-    dom.boardHeader = `Current player: ${currentPlayer}`;
+    dom.boardHeader.innerText = `Current player: ${currentPlayer}`;
 
     for (let x = 0; x < board.length; x++)
         for (let y = 0; y < board[x].length; y++)
@@ -35,5 +35,7 @@ function displayBoard() {
 }
 
 function handleBoardCellClicked(x, y) {
-    console.log("Clicked", x, y);
+    board[x][y] = currentPlayer;
+    currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+    displayBoard();
 }
