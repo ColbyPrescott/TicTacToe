@@ -29,9 +29,13 @@ function resetGame() {
 function displayBoard() {
     dom.boardHeader.innerText = `Current player: ${currentPlayer}`;
 
-    for (let x = 0; x < board.length; x++)
-        for (let y = 0; y < board[x].length; y++)
-            dom.boardTable.children[y].children[x].textContent = board[x][y];
+    for (let x = 0; x < board.length; x++) {
+        for (let y = 0; y < board[x].length; y++) {
+            const cell = dom.boardTable.children[y].children[x];
+            cell.textContent = board[x][y];
+            cell.disabled = board[x][y] != '';
+        }
+    }
 }
 
 function handleBoardCellClicked(x, y) {
