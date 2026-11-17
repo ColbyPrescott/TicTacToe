@@ -27,7 +27,11 @@ function resetGame() {
 }
 
 function displayBoard() {
-    console.log("displayBoard");
+    dom.boardHeader = `Current player: ${currentPlayer}`;
+
+    for (let x = 0; x < board.length; x++)
+        for (let y = 0; y < board[x].length; y++)
+            dom.boardTable.children[y].children[x].textContent = board[x][y];
 }
 
 function handleBoardCellClicked(x, y) {
